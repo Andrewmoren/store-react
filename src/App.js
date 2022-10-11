@@ -3,20 +3,16 @@ import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Categories from "./components/Categories";
 import Sort from "./components/Sort";
-import PizzaBlock from "./components/PizzaBlock";
+import PizzaBlock from "./components/PizzaBlock/PizzaBlock";
 
 import "./scss/app.scss";
-
-// import pizzas from "./assets/pizzas.json";
 
 function App() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
     fetch("https://63452c19dcae733e8feb2bd7.mockapi.io/items")
-      .then((res) => {
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((json) => {
         setItems(json);
       });
