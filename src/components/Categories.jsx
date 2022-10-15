@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-const Categories = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+const Categories = ({ value, onCLickCategory }) => {
+  // const [activeIndex, setActiveIndex] = useState(0);
 
   const categories = [
     "Все",
@@ -12,9 +12,9 @@ const Categories = () => {
     "Закрытые",
   ];
 
-  const onCLickCategory = (index) => {
-    setActiveIndex(index);
-  };
+  // const onCLickCategory = (index) => {
+  //   setActiveIndex(index);
+  // };
 
   return (
     <div className="categories">
@@ -23,7 +23,7 @@ const Categories = () => {
           <li
             key={i}
             onClick={() => onCLickCategory(i)}
-            className={activeIndex === i ? "active" : ""}
+            className={value === i ? "active" : ""}
           >
             {cat}
           </li>
