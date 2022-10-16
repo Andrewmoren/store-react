@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import ReactPaginate from "react-paginate";
+
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
@@ -64,6 +66,15 @@ const Home = ({ searchValue }) => {
             )} */}
         {isLoading ? skeletons : pizzas}
       </div>
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel="next >"
+        onPageChange={(e) => console.log(e)}
+        pageRangeDisplayed={8}
+        pageCount={3}
+        previousLabel="< previous"
+        renderOnZeroPageCount={null}
+      />
     </div>
   );
 };
