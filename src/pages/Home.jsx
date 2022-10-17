@@ -14,10 +14,9 @@ const Home = () => {
   const categoryId = useSelector((state) => state.filter.categoryId);
   const sortType = useSelector((state) => state.filter.sort.sortProperty);
 
-  const { searchValue, setSearchValue } = useContext(SearchContext);
+  const { searchValue } = useContext(SearchContext);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
   const [currentPage, setCurrentPage] = useState(1);
 
   const onChangeCategory = (id) => {
