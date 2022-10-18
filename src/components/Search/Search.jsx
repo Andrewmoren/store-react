@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import debounce from "lodash.debounce";
+import debounce from "lodash.Debounce";
 
 import styles from "./Search.module.scss";
 
@@ -22,7 +22,7 @@ const Search = () => {
   const updateSearchValue = useCallback(
     debounce((str) => {
       setSearchValue(str);
-    }, 500),
+    }, 250),
     []
   );
 
