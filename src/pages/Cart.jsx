@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import CartItem from "../components/CartItem";
 
 const Cart = () => {
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.cart.items);
+
   return (
     <div className="container container--cart">
       <div className="cart">
@@ -79,7 +84,9 @@ const Cart = () => {
             <span>Очистить корзину</span>
           </div>
         </div>
-        <div className="content__items"></div>
+        <div className="content__items">
+          <CartItem />
+        </div>
         <div className="cart__bottom">
           <div className="cart__bottom-details">
             <span>
