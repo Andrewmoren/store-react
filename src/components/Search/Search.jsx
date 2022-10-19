@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import debounce from "lodash.Debounce";
+import debounce from "lodash.debounce";
 
 import styles from "./Search.module.scss";
 
