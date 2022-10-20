@@ -44,7 +44,8 @@ const Home = () => {
       .then((res) => {
         setItems(res.data);
         setIsLoading(false);
-      });
+      })
+      .catch((err) => alert("Error"), setIsLoading(false));
 
     window.scrollTo(0, 0);
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
