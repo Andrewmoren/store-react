@@ -18,9 +18,8 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const { items, status } = useSelector(selectPizzaData);
-  const { categoryId, sort, currentPage } = useSelector(selectFilter);
-
-  const { searchValue } = useContext(SearchContext);
+  const { categoryId, sort, currentPage, searchValue } =
+    useSelector(selectFilter);
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
