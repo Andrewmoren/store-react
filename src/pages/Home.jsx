@@ -13,11 +13,10 @@ import { fetchPizzas } from "../redux/slices/pizzaSlice";
 const Home = () => {
   const dispatch = useDispatch();
 
+  const { items, status } = useSelector((state) => state.pizza);
   const { categoryId, sort, currentPage } = useSelector(
     (state) => state.filter
   );
-
-  const { items, status } = useSelector((state) => state.pizza);
 
   const { searchValue } = useContext(SearchContext);
 
@@ -49,7 +48,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    // fetchPizzas();
+    fetchPizzas();
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
   useEffect(() => {
@@ -68,9 +67,20 @@ const Home = () => {
         <Sort />
       </div>
       <h2 className="content__title">Все пиццы</h2>
-      <div className="content__items">
-        {status === "loading" ? skeletons : pizzas}
-      </div>
+      {status === "error" ? (
+        <div className="content__error-info">
+          <h2>Произошла ошибка 😕</h2>
+          <p>
+            к сожалению не удалось получить пиццыю Попробуйте повторить попытку
+            похже
+          </p>
+        </div>
+      ) : (
+        <div className="content__items">
+          {status === "loading" ? skeletons : pizzas}
+        </div>
+      )}
+
       <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </div>
   );
