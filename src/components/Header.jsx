@@ -19,14 +19,14 @@ const Header = () => {
           <div className="header__logo">
             <img width="38" src={logoSvg} alt="Pizza logo" />
             <div>
-              <h1>React Pizza</h1>
-              <p>самая вкусная пицца во вселенной</p>
+              <h1>Pizza Morenio</h1>
+              <p>самая вкусная пицца в в галактике</p>
             </div>
           </div>
         </Link>
         <Search />
-        {location.pathname !== "/cart" && (
-          <div className="header__cart">
+        <div className="header__cart">
+          {location.pathname !== "/cart" && (
             <Link to="/cart" className="button button--cart">
               <span>{totalPrice} ₽</span>
               <div className="button__delimiter"></div>
@@ -61,8 +61,8 @@ const Header = () => {
               </svg>
               <span>{totalCount}</span>
             </Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
