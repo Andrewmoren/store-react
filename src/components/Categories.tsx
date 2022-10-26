@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 type CategoriesProps = {
   value: number;
-  onChangeCategory: any
+  onChangeCategory: (i: number)=> void;
 
 }
 
