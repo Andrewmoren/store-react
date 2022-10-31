@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 import {
   selectFilter,
@@ -23,9 +23,9 @@ const Home: React.FC = () => {
   const { categoryId, sort, currentPage, searchValue } =
     useSelector(selectFilter);
 
-  const onChangeCategory = (id: number) => {
+  const onChangeCategory = useCallback((id: number) => {
     dispatch(setCategoryId(id));
-  };
+  }, [])
 
   const onChangePage = (number: number) => {
     dispatch(setCurrentPage(number));
@@ -60,7 +60,7 @@ const Home: React.FC = () => {
 
   const pizzas = items.map((obj: any) => (
     
-      <PizzaBlock {...obj} />
+      <PizzaBlock key={obj.id} {...obj} />
      
   ));
   const skeletons = [...new Array(6)].map((_, index) => (
