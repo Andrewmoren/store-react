@@ -7,6 +7,8 @@ import PizzaBlock from "../components/PizzaBlock/PizzaBlock";
 import Skeleton from "../components/PizzaBlock/Skeleton";
 import Pagination from "../components/Pagination/Pagination";
 
+
+
 import { useAppDispatch } from "../redux/store";
 import { selectFilter } from "../redux/filter/selectors";
 import { selectPizzaData } from "../redux/pizza/selectors";
@@ -15,10 +17,13 @@ import { fetchPizzas } from "../redux/pizza/asyncActions";
 
 const Home: React.FC = () => {
   const dispatch = useAppDispatch();
-
   const { items, status } = useSelector(selectPizzaData);
   const { categoryId, sort, currentPage, searchValue } =
     useSelector(selectFilter);
+
+   
+
+    
 
   const onChangeCategory = useCallback((id: number) => {
     dispatch(setCategoryId(id));
