@@ -52,9 +52,7 @@ const Home: React.FC = () => {
     window.scrollTo(0, 0);
   };
 
-  // useEffect(() => {
-  //   dispatch(fetchPizzas({} as SearchPizzaParams ));
-  // }, [categoryId, sort.sortProperty, searchValue, currentPage]);
+
 
   useEffect(() => {
     getPizzas();

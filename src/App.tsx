@@ -7,7 +7,6 @@ import "./scss/app.scss";
 import MainLayout from "./layouts/MainLayout";
 
 
-
 const Cart = React.lazy(() => import( /* webpackChunkName: "Cart" */ './pages/Cart'));
 const FullPizza = React.lazy(() => import( /* webpackChunkName: "FullPizza" */'./pages/FullPizza'));
 const NotFound  = React.lazy(() => import( /* webpackChunkName: "NotFound" */'./pages/NotFound'));
@@ -26,7 +25,9 @@ function App() {
         <Route path="*" element={<Suspense fallback={<div>Loading...</div>}>
           <NotFound />
           </Suspense>} />
+          
       </Route>
+     
     </Routes>
   );
 }
